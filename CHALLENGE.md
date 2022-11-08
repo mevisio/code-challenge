@@ -45,4 +45,13 @@ That being said, things we look for in your solution include:
   `yarn type-check` to make sure.
 * The application looks pretty! You decide what that means to you 😉
 
+#### What's Next?
+
+We will review your solution together during your interview, where we
+will discuss merits and potential improvements. We expect you to be
+able to critique the solution yourself, so we don't expect you to do
+"everything right" in the solution – as long as you can explain what
+your have done _as well as what you haven't done_, we're not going to
+hold you to any pragmatic decision made during the challenge.
+
 Good Luck!
