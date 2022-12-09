@@ -18,13 +18,31 @@ Both use TypeScript in `strict` mode.
 ## The Challenge
 
 Your task is to make a "word cloud" based on the frequency of words in
-a dataset. The dataset should be either an **RSS feed URL**, or a **Twitter
-hashtag**, which should be provided by the user. So, to summarize:
+a dataset. The dataset should be an **RSS feed URL**, which should be
+provided by the user. So, to summarize:
 
-1. The user should be able to input what dataset they want to use for
+1. The user should be able to input what RSS feed they want to use for
    the word cloud generation.
 2. The word cloud should display the words that occur in the dataset,
    with the size of each word representing the number of occurrences.
+
+The backend is already implemented with a route that fetches and parses
+the RSS feed. The endpoint works like this:
+
+```http
+GET /api/rss?feed=https://example.com/some/rss/feed HTTP/1.1
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+  "Lorem ipsum dolor sit amet...",
+  "Lorem ipsum dolor sit amet...",
+  ...
+]
+```
 
 > **Note:** It is common for word clouds to omit stop words (like "and"
 > and "or", etc.). Otherwise they would naturally skew the result since
@@ -39,7 +57,6 @@ represents you as a programmer.
 
 That being said, things we look for in your solution include:
 
-* Potentially heavy operations happen in the backend.
 * The code is written in TypeScript and is type-safe, and the TypeScript
   compiler doesn't complain when type-checking the project. Run
   `yarn type-check` to make sure.
