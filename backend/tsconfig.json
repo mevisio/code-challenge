@@ -3,6 +3,7 @@
     "noEmit": true,
     "target": "esnext",
     "module": "nodenext",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "strict": true
   }
 }

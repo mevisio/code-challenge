@@ -4,6 +4,7 @@
     "target": "esnext",
     "module": "nodenext",
     "skipLibCheck": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "strict": true
   }
 }

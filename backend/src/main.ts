@@ -10,7 +10,7 @@ createServer(router).listen(8126, () => {
 
 async function router(req: IncomingMessage, res: ServerResponse) {
   try {
-    const url = new URL(req.url, `http://${req.headers["host"]}`);
+    const url = new URL(req.url ?? "/", `http://${req.headers["host"]}`);
 
     switch (`${req.method} ${url.pathname}`) {
       case "GET /api/challenge":
