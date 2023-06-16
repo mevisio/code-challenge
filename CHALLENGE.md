@@ -1,5 +1,11 @@
 # Welcome to the Mevisio Code Challenge
 
+> 🙋 **Psst...** Do you feel more comfortable with solving problems in
+> the frontend only? Start from the [`solve-it-in-the-frontend` branch][fe-branch]
+> instead!
+
+[fe-branch]: https://github.com/mevisio/code-challenge/blob/solve-it-in-the-frontend
+
 ### Introduction
 
 Welcome! This project has a back-end and a front-end that work together.
