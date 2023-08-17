@@ -3,3 +3,55 @@
   max-width: 40em;
   margin-inline: auto;
 }
+
+/* WordCloudComponent.css */
+
+/* Center the word cloud container */
+.wordcloud-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin: 20px;
+}
+
+textarea {
+  border: 1px solid #e3e9ef;
+  color: #2a3e52;
+  font-size: 16px;
+  padding: 20px;
+  resize: none;
+  grid-column-start: 2;
+  border-radius: 5px;
+  outline: none;
+  overflow: auto;
+  margin: 20px;
+  width: 100%;
+  min-height: 200px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #08f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Style the word cloud wrapper with a rectangle border */
+.wordcloud-wrapper {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 1000px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+/* WordCloudComponent.css Ends here */
