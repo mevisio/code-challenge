@@ -2,6 +2,7 @@ import { createServer } from "node:http";
 import { IncomingMessage, ServerResponse } from "node:http";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { DOMParser } from "@xmldom/xmldom";
 import { marked } from "marked";
 
 createServer(router).listen(8126, () => {
@@ -13,6 +14,37 @@ async function router(req: IncomingMessage, res: ServerResponse) {
     const url = new URL(req.url ?? "/", `http://${req.headers["host"]}`);
 
     switch (`${req.method} ${url.pathname}`) {
+      case "GET /api/rss":
+        if (!url.searchParams.has("feed")) {
+          res.writeHead(400, {
+            "Content-Type": "application/json",
+          });
+          res.write(
+            JSON.stringify({
+              error: "Missing required query parameter 'feed'",
+            })
+          );
+          return;
+        }
+
+        const feedURL = new URL(url.searchParams.get("feed")!);
+        const response = await fetch(feedURL);
+        const xml = new DOMParser().parseFromString(
+          await response.text(),
+          response.headers.get("Content-Type") ?? undefined
+        );
+
+        const descriptions = Array.from(
+          xml.getElementsByTagName("description"),
+          (el) => el.textContent
+        );
+
+        res.writeHead(200, {
+          "Content-Type": "application/json",
+        });
+        res.write(JSON.stringify(descriptions));
+        break;
+
       case "GET /api/challenge":
         res.writeHead(200);
         res.write(
