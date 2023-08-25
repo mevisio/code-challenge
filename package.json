@@ -8,9 +8,9 @@
     "dev": "concurrently npm:{frontend,backend}",
     "frontend": "yarn workspace frontend dev",
     "backend": "yarn workspace backend dev",
-    "type-check": "yarn workspaces run type-check" 
+    "type-check": "yarn workspaces run type-check"
   },
   "devDependencies": {
-    "concurrently": "^7.5.0"
+    "concurrently": "^8.2.1"
   }
 }

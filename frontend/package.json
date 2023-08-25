@@ -4,12 +4,11 @@
   "version": "0.1.0",
   "type": "module",
   "devDependencies": {
-    "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
-    "@vitejs/plugin-react": "^2.2.0",
-    "typescript": "^4.8.4",
-    "vite": "^3.2.3"
+    "@vitejs/plugin-react": "^4.0.4",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
   },
   "dependencies": {
     "react": "^18.2.0",
