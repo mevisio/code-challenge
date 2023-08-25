@@ -24,8 +24,9 @@ Both use TypeScript in `strict` mode.
 ## The Challenge
 
 Your task is to make a "word cloud" based on the frequency of words in
-a dataset. The dataset should be either an **RSS feed URL**, or a **Twitter
-hashtag**, which should be provided by the user. So, to summarize:
+a dataset. The dataset should be either an **RSS feed URL**, or an **uploaded
+text file**, which should be provided by the user. You may choose which
+type of dataset to implement – or support both! So, to summarize:
 
 1. The user should be able to input what dataset they want to use for
    the word cloud generation.
