@@ -3,3 +3,43 @@
   max-width: 40em;
   margin-inline: auto;
 }
+
+.App pre {
+  background: #F0F0F0;
+  padding: 10px;
+}
+
+.Tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Tabs ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.Tabs label {
+  display: block;
+  border-bottom: 2px solid #F0F0F0;
+  padding: 10px;
+}
+
+.Tabs__radio:checked ~ label {
+  border-bottom-color: blue;
+}
+
+.Tabs__radio {
+  display: none;
+}
+
+.Cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}

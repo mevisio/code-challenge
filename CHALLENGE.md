@@ -1,10 +1,10 @@
 # Welcome to the Mevisio Code Challenge
 
-> 🙋 **Psst...** Do you feel more comfortable with solving problems in
-> the frontend only? Start from the [`solve-it-in-the-frontend` branch][fe-branch]
+> 🙋 **Psst...** Do you feel comfortable with solving problems in
+> the frontend too? Start from the [`main` branch][main-branch]
 > instead!
 
-[fe-branch]: https://github.com/mevisio/code-challenge/blob/solve-it-in-the-frontend
+[main-branch]: https://github.com/mevisio/code-challenge/
 
 ### Introduction
 
@@ -25,8 +25,7 @@ Both use TypeScript in `strict` mode.
 
 Your task is to make a "word cloud" based on the frequency of words in
 a dataset. The dataset should be either an **RSS feed URL**, or an **uploaded
-text file**, which should be provided by the user. You may choose which
-type of dataset to implement – or support both! So, to summarize:
+text file**, which should be provided by the user. So, to summarize:
 
 1. The user should be able to input what dataset they want to use for
    the word cloud generation.
@@ -37,6 +36,54 @@ type of dataset to implement – or support both! So, to summarize:
 > and "or", etc.). Otherwise they would naturally skew the result since
 > they are so common. Feel free to do that too!
 
+The frontend is provided for you, and expects the backend to support the
+following endpoints:
+
+```http
+GET /api/word-occurrences/rss?url=<url-to-an-RSS-feed>
+```
+
+```http
+POST /api/word-occurrences/file
+Content-Type: text/plain
+
+<plain text file>
+```
+
+Both of these endpoints should return a JSON response with the following
+schema:
+
+```typescript
+type EndpointResponse =
+  SuccessfulEndpointResponse |
+  UnsuccessfulEndpointResponse;
+
+interface UnsuccessfulEndpointResponse {
+  ok: false;
+
+  /**
+   * A description of what went wrong.
+   */
+  error: string;
+}
+
+interface SuccessfulEndpointResponse {
+  ok: true;
+
+  /**
+   * This field should be sorted by the
+   * number of occurrences, in descending
+   * order.
+   */
+  words: WordOccurrences[];
+}
+
+interface WordOccurrences {
+  word: string;
+  occurrences: number;
+}
+```
+
 ### The Rules
 
 There aren't very many rules. You can install dependencies if you like,
@@ -46,7 +93,6 @@ represents you as a programmer.
 
 That being said, things we look for in your solution include:
 
-* Potentially heavy operations happen in the backend.
 * The code is written in TypeScript and is type-safe, and the TypeScript
   compiler doesn't complain when type-checking the project. Run
   `yarn type-check` to make sure.
